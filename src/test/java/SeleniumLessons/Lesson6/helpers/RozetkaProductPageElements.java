@@ -24,7 +24,6 @@ public class RozetkaProductPageElements extends BasePage {
 //    private String btnSmallTiles = "//rz-view-switch/div/button[2]";
 //    private String listFoundProducts = "//rz-grid/ul/li/rz-catalog-tile/app-goods-tile-default/div";
 //    private String productNotFound = "//span[@_ngcontent-rz-client-c105]";
-WebDriver driver;
     public RozetkaProductPageElements(WebDriver driver) {
         super(driver);
         PageFactory.initElements(driver, this);

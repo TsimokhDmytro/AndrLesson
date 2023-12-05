@@ -4,22 +4,21 @@ import org.testng.annotations.Test;
 
 public class Lesson14 {
 
-    static String string = "1254+6";
+   static int a;
 
-
-    @Test
-    public void changeString1() {
-        System.out.println(string);
-        string = "97878787";
+    public void change() {
+        a++;
+        System.out.println(a);
+        System.out.println(10%3);
     }
 
     @Test
-    public void changeString2() {
-        System.out.println(string);
-      string = "8289";
-    }
-    @Test
-    public void changeString3() {
-        System.out.println(string);
+    public void test2() {
+        Lesson14 les1 =new Lesson14();
+        Lesson14 les2 =new Lesson14();
+        Lesson14 les3 =new Lesson14();
+        les1.change();
+        les2.change();
+        les3.change();
     }
 }

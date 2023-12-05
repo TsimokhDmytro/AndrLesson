@@ -1,46 +1,1 @@
-package SeleniumLessons.Lesson6.Tests;
-
-import SeleniumLessons.Lesson6.helpers.RozetkaHomePageElements;
-import SeleniumLessons.Lesson6.helpers.RozetkaProductPageElements;
-import io.qameta.allure.Owner;
-import io.qameta.allure.Severity;
-import io.qameta.allure.SeverityLevel;
-import jdk.jfr.Description;
-import org.testng.Assert;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
-
-public class TestSearchFieldNegative extends TestInit {
-
-    @DataProvider(parallel = true)
-    public Object[][] setUp() {
-        return new Object[][]{
-                {"zdgsfgdfhjr"}, {"ûàâðêîyâàïð"}, {"2565465656566"},
-                {"@@@@"}, {"........"},
-                {"%%%%%%"},
-                {"******"}, {"}}}}}}"}, {")))))"}, {"((((("}, {"!!!!!"},
-                {"+++++"}, {"-----"}, {"____"},
-                {"$$$$"}, {"#####"}, {"&&&&&"}, {"^^^^^"}, {">>>>>"}, {"<<<<"}, {";;;;;"}, {":::::"}, {"  "}
-////                {"====="},{",,,,,,,"},{""}
-        };
-    }
-
-    String expectedResultText = "Çà çàäàíèìè ïàðàìåòðàìè íå çíàéäåíî æîäíî¿ ìîäåë³";
-
-    @Test(dataProvider = "setUp")
-    @Description("Check search field with invalid data")
-    @Severity(SeverityLevel.CRITICAL)
-    @Owner("Tsimokh D. seniorQA")
-    public void checkSearchFieldNegative(String invalidText) {
-
-        RozetkaHomePageElements homePage = new RozetkaHomePageElements(getDriver());
-
-        homePage.openRozetka()
-                .inputInSearchField(invalidText);
-
-        RozetkaProductPageElements productPage = new RozetkaProductPageElements(getDriver());
-
-        Assert.assertEquals(productPage.getTextProductNotFound(), expectedResultText);
-    }
-}
-
+package SeleniumLessons.Lesson6.Tests;import SeleniumLessons.Lesson6.helpers.RozetkaHomePageElements;import SeleniumLessons.Lesson6.helpers.RozetkaProductPageElements;import io.qameta.allure.Owner;import io.qameta.allure.Severity;import io.qameta.allure.SeverityLevel;import org.testng.Assert;import org.testng.annotations.DataProvider;import org.testng.annotations.Test;public class TestSearchFieldNegative extends TestInit {    String expectedResultText = "ÐŸÐ¾ Ð·Ð°Ð´Ð°Ð½Ð½Ñ‹Ð¼ Ð¿Ð°Ñ€Ð°Ð¼ÐµÑ‚Ñ€Ð°Ð¼ Ð½Ðµ Ð½Ð°Ð¹Ð´ÐµÐ½Ð° Ð½Ð¸ Ð¾Ð´Ð½Ð° Ð¼Ð¾Ð´ÐµÐ»ÑŒ";    @DataProvider(parallel = true)    public Object[][] setUp() {        return new Object[][]{                { "zdgsfgdfhjr"}, {"dvscv562cvv"}, {"2565465656566"},                {"@@@@"}, {"........"}, {"%%%%%%"}, {"******"}, {"}}}}}}"}, {")))))"}, {"((((("}, {"!!!!!"},                {"+++++"}, {"-----"}, {"____"},                {"$$$$"}, {"#####"}, {"&&&&&"}, {"^^^^^"}, {">>>>>"}, {"<<<<"}, {";;;;;"}, {":::::"}, {"  "},                {"====="},{",,,,,,,"},{""}        };    }    @Test(dataProvider = "setUp", description = "Check search field with invalid data")    @Severity(SeverityLevel.CRITICAL)    @Owner("Tsimokh D. seniorQA")    public void checkSearchFieldNegative(String invalidText, String invalidPassword) {        RozetkaHomePageElements homePageElements = new RozetkaHomePageElements(driver);        homePageElements.openRozetka()                .inputInSearchField(invalidText)                .inputInSearchField(invalidPassword);        RozetkaProductPageElements productPage = new RozetkaProductPageElements(driver);        Assert.assertEquals(productPage.getTextProductNotFound(), expectedResultText);    }}

@@ -19,7 +19,7 @@ public abstract class BasePage {
     private static final Duration TIMEOUT = Duration.ofSeconds(15);
 
     public BasePage(WebDriver driver) {
-        wait = new WebDriverWait(driver, TIMEOUT);
+        this.wait = new WebDriverWait(driver, TIMEOUT);
         this.driver = driver;
     }
 

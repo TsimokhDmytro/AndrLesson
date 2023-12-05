@@ -27,10 +27,11 @@ public class RozetkaHomePageElements extends BasePage {
         waitForCurrentUrl(ROZETKA);
         return this;
     }
-    public void inputInSearchField(String productName) {
+    public RozetkaHomePageElements inputInSearchField(String productName) {
         step(String.format("Input in search field %s", productName), () -> {
             waitForClickableElement(SEARCH_FIELD).sendKeys(productName);
             pressEnter();
         });
+        return this;
     }
 }
